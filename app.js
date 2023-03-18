@@ -3,12 +3,14 @@ const bodyParser = require("body-parser");
 const date=require(__dirname +"/date.js");
 const _=require("lodash");
 const mongoose=require("mongoose");
-console.log(date);
+//console.log(date);
 //mongooose connecction
 mongoose.set('strictQuery', false);
-mongoose.connect("mongodb+srv://saimadala1872:Madala187@cluster0.wyspesa.mongodb.net/todolistDB",{ useNewUrlParser: true });
 
-const itemsSchema= new mongoose.Schema({
+ mongoose.connect("mongodb+srv://saimadala1872:Madala187@cluster0.wyspesa.mongodb.net/todolistDB",{ useNewUrlParser: true });
+
+
+const itemsSchema=mongoose.Schema({
   name: String
 });
 
@@ -39,7 +41,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 var day=date.getDay();
 app.set("view engine", 'ejs');
-const items=["buy food", "eat food"];
+//const items=["buy food", "eat food"];
 const workitems=[];
 ///home page call
 app.get("/", function(req, res) {
@@ -118,7 +120,7 @@ app.post("/",function(req,res){
 app.post("/delete",function(req,res){
   const itemId=req.body.checkbox;
   const listName=req.body.listName;
-  console.log(listName);
+  //console.log(listName);
   if(listName==day){
   Item.deleteOne({_id:itemId}).then(function(){  /// or we can use findByIdAndRemove function also
 res.redirect("/");
