@@ -69,10 +69,10 @@ app.get("/:customeListname",function(req,res){
 
   List.findOne({name:customListName}).then(function(doc){
   if(doc){
-    console.log("list already existed");
+    //console.log("list already existed");
       res.render("list", {daylist: doc.name, newlist: doc.items });}
     else{
-      console.log("not existed");
+      //console.log("not existed");
       const list=new List({
         name:customListName,
         items:defaultItems
@@ -100,7 +100,7 @@ app.post("/",function(req,res){
     const newone=new Item({
       name: newitem
     });
-    console.log(day,listname);
+    //console.log(day,listname);
     if (listname===day){
     newone.save();
     res.redirect("/");}
