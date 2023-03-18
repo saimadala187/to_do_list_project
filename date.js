@@ -12,7 +12,8 @@ var options = {
 exports.getDay=function (){
 var today = new Date();
 var options = {
-  weekday: "long"
+  weekday: "long",
+  timeZone: 'Asia/Kolkata'
 }
 return today.toLocaleString("en-US", options);
 };
