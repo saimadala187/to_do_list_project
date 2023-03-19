@@ -17,14 +17,14 @@ const itemsSchema=mongoose.Schema({
 const Item=mongoose.model("Item",itemsSchema)
 
 const  item1=new Item({
-  name:"Buy Food"
+  name:"Welcome to your todolist!"
 });
 
 const  item2=new Item({
-  name:"Eat Food"
+  name:"Hit + Button to add new list item."
 });
 const  item3=new Item({
-  name:"Make Food"
+  name:"<--Hit this to delete the item."
 });
 const defaultItems=[item1,item2,item3];
 
